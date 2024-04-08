@@ -52,21 +52,38 @@ export function GetArrayFromJson(jsonvalue) {
   return sendValue
 }
 
-// export const BASEWEBURL = 'https://demo3.sjainventures.com/frc/administrator'
-export const BASEWEBURL1 = 'https://frcadmin.sjain.io'
-export const BASEWEBURL2 = 'http://localhost:3001'
-export const BASEWEBURL3 = 'http://192.168.2.34:3001'
+// Local System URL will be here
+const LOCALBASEURL = 'http://localhost:3001' // react code URL
+const LocalNODEAPIURL = 'http://localhost:3000' // node code URL
+// Local System URL will be here
 
-export const BASEWEBURL = BASEWEBURL2
+// Online Server System URL will be here
+const ONLINEBASEURL = 'https://reactjs.indiahelppoint.in/' // react code URL
+const OnlineNODEAPIURL = 'https://nodejs.indiahelppoint.in' // node code URL
+// Online Server System  URL will be here
+
+// decide the web and API url automatically
+let BaseURLFinal = ONLINEBASEURL
+let FinalNODEAPIURL = OnlineNODEAPIURL
+
+if (window.location.href.includes(LOCALBASEURL)) {
+  BaseURLFinal = LOCALBASEURL
+  FinalNODEAPIURL = LocalNODEAPIURL
+}
+
+export const BASEWEBURL = BaseURLFinal
+export const NODEAPIURL = FinalNODEAPIURL
+// decide the web and API url automatically
 
 export const UPLOADSsURL = 'https://frcadmin.sjain.io/uploads/'
 export const DoUploadURL = 'https://frcadmin.sjain.io/uploads/index.php'
 
-export const NODEAPIURL = 'http://localhost:3000'
+// node code Base URL
 
 export const NodeUPLOADSsURL = 'http://localhost:3000/showfile/'
 export const DoNodeUploadURL = `${NODEAPIURL}/uploadAnyFile`
 export const NodeUploadBasePhyPath = '/home/azureuser/frcsj/uploads/'
+// node code Base URL
 
 export const AllMonthsName = [
   'January',
