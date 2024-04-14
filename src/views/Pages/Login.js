@@ -16,7 +16,7 @@ import {
 
 import { BASEWEBURL, NODEAPIURL } from '../../config'
 
-import Logo from '../../assets/images/logo.png'
+import Logo from '../../assets/logo.png'
 import loginImg from '../../assets/images/login-img.svg'
 
 const Login = ({ setIsLogin }) => {

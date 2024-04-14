@@ -12,8 +12,8 @@ import {
 
 import { AppSidebarNav } from './AppSidebarNav'
 
-import Logo from 'src/assets/images/logo.png'
-import LogoSmall from 'src/assets/images/logo-icon.png'
+import Logo from 'src/assets/logo.png'
+import LogoSmall from 'src/assets/logoSmall.png'
 
 import SimpleBar from 'simplebar-react'
 import 'simplebar/dist/simplebar.min.css'
