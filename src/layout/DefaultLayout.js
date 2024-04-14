@@ -20,6 +20,7 @@ const DefaultLayout = () => {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Basic ${localStorage.getItem('token')}`,
+          dbToken: localStorage.getItem('dbToken') ? localStorage.getItem('dbToken') : 0,
         },
         body: JSON.stringify({
           action: localStorage.getItem('token'),

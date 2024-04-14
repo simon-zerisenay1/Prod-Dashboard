@@ -53,8 +53,8 @@ export function GetArrayFromJson(jsonvalue) {
 }
 
 // Local System URL will be here
-const LOCALBASEURL = 'http://localhost:3001' // react code URL
-const LocalNODEAPIURL = 'http://localhost:3000' // node code URL
+const LOCALBASEURL = 'http://localhost:3000' // react code URL
+const LocalNODEAPIURL = 'http://localhost:3005' // node code URL
 // Local System URL will be here
 
 // Online Server System URL will be here

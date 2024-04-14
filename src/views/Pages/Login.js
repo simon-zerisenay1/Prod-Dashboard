@@ -65,12 +65,16 @@ const Login = ({ setIsLogin }) => {
           }
           localStorage.setItem('AllPermission', JSON.stringify(resJson.AllPermission))
           localStorage.setItem('profile', JSON.stringify(resJson.data))
+          localStorage.setItem('dbToken', resJson.data.company_id)
           setAjaxResClass('alert-success')
+          // console.error(resJson.data)
+          // alert(resJson.data.company_id)
           setTimeout(() => {
             setIsLogin(1)
             dispatch({ type: 'set', IsLogin2: 1 })
           }, 3500)
-          // console.log(BASEWEBURL)
+          // console.error(resJson)
+          // alert(5)
           window.location.href = `${BASEWEBURL}`
         }
         setAjaxRes(resJson.message)
