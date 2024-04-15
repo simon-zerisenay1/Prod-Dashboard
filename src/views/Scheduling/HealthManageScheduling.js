@@ -20,7 +20,7 @@ import {
   CForm,
   CFormCheck,
 } from '@coreui/react'
-import { NODEAPIURL } from '../../config'
+import { NODEAPIURL, headerAPI } from '../../config'
 
 let TempWorkerListData = []
 // let SortStatusType = 'ASC'
@@ -67,10 +67,7 @@ const UploadActivity = ({
     try {
       const res = await fetch(`${NODEAPIURL}/admin/scheduling/getUsers`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType: 'ASC',
           action: 'AssingedActivity',
@@ -114,10 +111,7 @@ const UploadActivity = ({
       try {
         const res = await fetch(`${NODEAPIURL}/admin/scheduling/getDetailData`, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Basic ${localStorage.getItem('token')}`,
-          },
+          headers: headerAPI({ 'Content-Type': 'application/json' }),
           body: JSON.stringify({
             sch_id,
             formID,

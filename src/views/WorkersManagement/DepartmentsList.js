@@ -26,7 +26,7 @@ import {
   CFormInput,
   CButton,
 } from '@coreui/react'
-import { NODEAPIURL, showdatetimein } from '../../config'
+import { NODEAPIURL, headerAPI, showdatetimein } from '../../config'
 import DepartmentCreate from './DepartmentCreate'
 // import { findByText } from '@testing-library/react'
 
@@ -42,7 +42,7 @@ const DepartmentsListPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/department/get`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           token: 'hello',
           recordsPerPage: 10,
@@ -65,7 +65,7 @@ const DepartmentsListPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/department/get`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword,
           recordsPerPage: 10,
@@ -88,7 +88,7 @@ const DepartmentsListPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/department/udpateStatus`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           status: new_status,
           dpt_id: DataID,

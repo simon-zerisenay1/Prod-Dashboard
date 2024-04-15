@@ -14,7 +14,7 @@ import {
   CImage,
 } from '@coreui/react'
 
-import { BASEWEBURL, NODEAPIURL } from '../../config'
+import { BASEWEBURL, NODEAPIURL, headerAPI } from '../../config'
 
 import Logo from '../../assets/logo.png'
 import loginImg from '../../assets/images/login-img.svg'
@@ -47,7 +47,7 @@ const Login = ({ setIsLogin }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/supervisor/login`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(LoginDetails),
       })
       const resJson = await res.json()
@@ -92,7 +92,7 @@ const Login = ({ setIsLogin }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/supervisor/forgotPassword`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(LoginDetails),
       })
       const resJson = await res.json()
@@ -127,7 +127,7 @@ const Login = ({ setIsLogin }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/supervisor/NewPassword`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(LoginDetails),
       })
       const resJson = await res.json()

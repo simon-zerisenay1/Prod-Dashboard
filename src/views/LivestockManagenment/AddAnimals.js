@@ -86,7 +86,7 @@
 //     try {
 //       const res = await fetch(`${NODEAPIURL}/admin/getanimalsDetails`, {
 //         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
+//         headers: headerAPI({ 'Content-Type': 'application/json' }),
 //         body: JSON.stringify({
 //           auto_id: auto_id,
 //           recordsPerPage: 10,
@@ -108,7 +108,7 @@
 //     try {
 //       const res = await fetch(`${NODEAPIURL}/admin/getAnimalsMaster`, {
 //         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
+//         headers: headerAPI({ 'Content-Type': 'application/json' }),
 //         body: JSON.stringify({
 //           token: 'hello',
 //           recordsPerPage: 10,

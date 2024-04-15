@@ -12,7 +12,7 @@ import {
   CForm,
   CFormSelect,
 } from '@coreui/react'
-import { NODEAPIURL, BASEWEBURL, DoUploadURL } from '../../config'
+import { NODEAPIURL, BASEWEBURL, DoUploadURL, headerAPI } from '../../config'
 import loader from '../../assets/images/loader.gif'
 
 const CertificateRequest = () => {
@@ -38,10 +38,7 @@ const CertificateRequest = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/inventory/CertificateRequest`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(FormDataHere),
       })
       const resJson = await res.json()
@@ -66,7 +63,7 @@ const CertificateRequest = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/vendor/getListData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({ Act_status: 1 }),
       })
       const resJson = await res.json()

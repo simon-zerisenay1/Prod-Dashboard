@@ -45,6 +45,7 @@ import {
   showFulldatetimein,
   TodaydateYMD,
   UPLOADSsURL,
+  headerAPI,
 } from '../../config'
 // import AddWorkers from './AddWorkers'
 
@@ -68,10 +69,7 @@ const WorkersLeaveRequest = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getLeaveslist`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           token: 'hello',
           FilterFromDate,
@@ -99,10 +97,7 @@ const WorkersLeaveRequest = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getLeaveslist`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword,
           FilterFromDate,
@@ -137,10 +132,7 @@ const WorkersLeaveRequest = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/updateLeavesRemarkAdminNew`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           RemarkId,
           RemarkAdmin,
@@ -179,10 +171,7 @@ const WorkersLeaveRequest = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/updateLeavesStatusNew`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           new_status,
           auto_id,

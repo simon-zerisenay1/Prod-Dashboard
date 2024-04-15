@@ -24,7 +24,7 @@ import {
   CButton,
   CFormSelect,
 } from '@coreui/react'
-import { NODEAPIURL, showFulldatetimein } from '../../config'
+import { NODEAPIURL, headerAPI, showFulldatetimein } from '../../config'
 
 let SortStatusType = 'DESC'
 let Act_status = ''
@@ -38,7 +38,7 @@ const DepartmentsListPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/getSignupList`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           token: 'hello',
           recordsPerPage: 10,
@@ -62,7 +62,7 @@ const DepartmentsListPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/getSignupList`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword,
           recordsPerPage: 10,
@@ -96,7 +96,7 @@ const DepartmentsListPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/updateSignupStatus`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({ status, id }),
       })
       const resJson = await res.json()

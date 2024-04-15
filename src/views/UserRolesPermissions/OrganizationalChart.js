@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { CCard, CCardBody, CCol, CRow } from '@coreui/react'
-import { BASEWEBURL, NODEAPIURL, UPLOADSsURL } from '../../config'
+import { BASEWEBURL, NODEAPIURL, UPLOADSsURL, headerAPI } from '../../config'
 import { Tree, TreeNode } from 'react-organizational-chart'
 import './OrganizationalChart.css'
 import CIcon from '@coreui/icons-react'
@@ -19,10 +19,7 @@ const OrganizationalChart = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/supervisor/GetorganizationChart`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({}),
       })
       const resJson = await res.json()

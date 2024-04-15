@@ -38,7 +38,7 @@
 //     try {
 //       const res = await fetch(`${NODEAPIURL}/admin/getanimalslist`, {
 //         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
+//         headers: headerAPI({ 'Content-Type': 'application/json' }),
 //         body: JSON.stringify({
 //           token: 'hello',
 //           selectOnly: 1,

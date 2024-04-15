@@ -22,7 +22,7 @@ import {
   CButton,
   CTableFoot,
 } from '@coreui/react'
-import { NODEAPIURL, showFulldatetimein, showdateYMDtoLocal } from '../../config'
+import { NODEAPIURL, headerAPI, showFulldatetimein, showdateYMDtoLocal } from '../../config'
 import PublicHolidaysCreate from './publicHolidaysCreate'
 
 let SortStatusType = 'ASC'
@@ -39,7 +39,7 @@ const DepartmentsListPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/publicHolidays/get`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword,
           recordsPerPage: 10,
@@ -64,7 +64,7 @@ const DepartmentsListPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/publicHolidays/udpateStatus`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           status: new_status,
           pholi_id: DataID,

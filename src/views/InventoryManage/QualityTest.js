@@ -35,7 +35,7 @@ import {
   CDropdownItem,
   CDropdownToggle,
 } from '@coreui/react'
-import { NODEAPIURL, showFulldatetimein } from '../../config'
+import { NODEAPIURL, headerAPI, showFulldatetimein } from '../../config'
 import AddTestingtoBill from './AddTestingtoBill'
 
 let Act_status = 0
@@ -54,10 +54,7 @@ const VendorListDataPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/inventory/getQualityTestRequestList`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           token: 'hello',
           Qul_status: 0,
@@ -86,10 +83,7 @@ const VendorListDataPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/inventory/getQualityTestRequestList`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword,
           Qul_status: Act_status,

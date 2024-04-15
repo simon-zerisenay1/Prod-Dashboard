@@ -158,7 +158,7 @@
 //     try {
 //       var requestOptions = {
 //         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
+//         headers: headerAPI({ 'Content-Type': 'application/json' }),
 //         body: JSON.stringify({ formID, AutoID, formType: 'weights' }),
 //       }
 //       const res = await fetch(`${NODEAPIURL}/admin/GetAnimalHealthData`, requestOptions)

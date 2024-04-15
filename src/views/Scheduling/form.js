@@ -21,7 +21,7 @@ import {
   CFormCheck,
   CFormSelect,
 } from '@coreui/react'
-import { BASEWEBURL, NODEAPIURL } from '../../config'
+import { BASEWEBURL, NODEAPIURL, headerAPI } from '../../config'
 
 let TempWorkerListData = []
 // let SortStatusType = 'ASC'
@@ -42,10 +42,7 @@ const UploadActivity = ({ ForActId, setShowUploadActivity, FilterListData }) => 
     try {
       const res = await fetch(`${NODEAPIURL}/admin/scheduling/getUsers`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType: 'ASC',
           action: 'AssingedActivity',
@@ -115,10 +112,7 @@ const UploadActivity = ({ ForActId, setShowUploadActivity, FilterListData }) => 
     try {
       const res = await fetch(`${NODEAPIURL}/admin/scheduling/addActivity`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(ActivityWorkers),
       })
       const resJson = await res.json()
@@ -146,10 +140,7 @@ const UploadActivity = ({ ForActId, setShowUploadActivity, FilterListData }) => 
     try {
       const res = await fetch(`${NODEAPIURL}/admin/scheduling/getDetailData`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           sch_id,
           device: localStorage.getItem('DeviceDetails'),

@@ -8,7 +8,7 @@ import {
   CRow,
   // sdfgsf dsjkgfjksdg
 } from '@coreui/react'
-import { NODEAPIURL } from '../../config'
+import { NODEAPIURL, headerAPI } from '../../config'
 
 const DataFormFieldList = ({ for_form, data_id, returnData }) => {
   let IndexTable = 'field_id'
@@ -19,7 +19,7 @@ const DataFormFieldList = ({ for_form, data_id, returnData }) => {
       try {
         const res = await fetch(`${NODEAPIURL}/admin/DataformFieldsslist`, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: headerAPI({ 'Content-Type': 'application/json' }),
           body: JSON.stringify({
             for_form,
             data_id,

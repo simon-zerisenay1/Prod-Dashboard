@@ -56,7 +56,7 @@
 //     try {
 //       const res = await fetch(`${NODEAPIURL}/admin/getanimalsTemperature`, {
 //         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
+//         headers: headerAPI({ 'Content-Type': 'application/json' }),
 //         body: JSON.stringify({
 //           token: 'hello',
 //           recordsPerPage: 10,
@@ -101,7 +101,7 @@
 //     try {
 //       const res = await fetch(`${NODEAPIURL}/admin/getanimalsTemperature`, {
 //         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
+//         headers: headerAPI({ 'Content-Type': 'application/json' }),
 //         body: JSON.stringify({
 //           keyword,
 //           recordsPerPage: 10,

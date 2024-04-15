@@ -24,6 +24,7 @@ import {
 import {
   BASEWEBURL,
   DoUploadURL,
+  headerAPI,
   NODEAPIURL,
   reportDescriptionAlphaLength,
   reportDescriptionLength,
@@ -80,10 +81,7 @@ const UploadActivity = ({ ForActId, setShowUploadActivity, FilterListData }) => 
     try {
       const res = await fetch(`${NODEAPIURL}/supervisor/listWorkers`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType: 'ASC',
           action: 'AssingedActivity',
@@ -143,10 +141,7 @@ const UploadActivity = ({ ForActId, setShowUploadActivity, FilterListData }) => 
     try {
       const res = await fetch(`${NODEAPIURL}/admin/activity/addNewNote`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           act_id: ForActId,
           note: NewNote,
@@ -176,10 +171,7 @@ const UploadActivity = ({ ForActId, setShowUploadActivity, FilterListData }) => 
     try {
       const res = await fetch(`${NODEAPIURL}/admin/activity/editNewNote`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           act_id: ForActId,
           note: EditNote,
@@ -204,10 +196,7 @@ const UploadActivity = ({ ForActId, setShowUploadActivity, FilterListData }) => 
     try {
       const res = await fetch(`${NODEAPIURL}/admin/activity/deleteFileAttachment`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           act_id: ForActId,
           deletefile: fileURL,
@@ -259,10 +248,7 @@ const UploadActivity = ({ ForActId, setShowUploadActivity, FilterListData }) => 
     try {
       const res = await fetch(`${NODEAPIURL}/admin/addActivity`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(ActivityWorkers),
       })
       const resJson = await res.json()
@@ -291,10 +277,7 @@ const UploadActivity = ({ ForActId, setShowUploadActivity, FilterListData }) => 
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getActivityDetailData`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           act_id,
           device: localStorage.getItem('DeviceDetails'),

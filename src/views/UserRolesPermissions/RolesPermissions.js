@@ -35,7 +35,7 @@ import {
   CFormSelect,
   CFormCheck,
 } from '@coreui/react'
-import { NODEAPIURL, showdatetimein } from '../../config'
+import { NODEAPIURL, headerAPI, showdatetimein } from '../../config'
 import AddWorkers from '../WorkersManagement/AddWorkers'
 import PermissionWorkers from './PermissionWorkersList'
 import { Link } from 'react-router-dom'
@@ -67,10 +67,7 @@ const RolesPermissions = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getworkerslist`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           token: 'hello',
           recordsPerPage: 10,
@@ -100,10 +97,7 @@ const RolesPermissions = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getworkerslist`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword,
           dpt_id,
@@ -134,7 +128,7 @@ const RolesPermissions = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/department/get`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType: 'ASC',
           status: 1,
@@ -155,7 +149,7 @@ const RolesPermissions = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/updateWorkersStatus`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           new_status,
           emp_id,
@@ -177,7 +171,7 @@ const RolesPermissions = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/updateaProfileStatus`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           new_status,
           emp_id,
@@ -209,7 +203,7 @@ const RolesPermissions = () => {
     // try {
     //   const res = await fetch(`${NODEAPIURL}/admin/getWorkersProfileStatus`, {
     //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
+    //     headers: headerAPI({ 'Content-Type': 'application/json' }),
     //     body: JSON.stringify({
     //       emp_id,
     //       aProfileStatus,

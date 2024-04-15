@@ -15,7 +15,7 @@ import {
   CFormCheck,
   CFormSelect,
 } from '@coreui/react'
-import { BASEWEBURL, NODEAPIURL } from '../../config'
+import { BASEWEBURL, NODEAPIURL, headerAPI } from '../../config'
 import ListDefaultData from './DefaultGeoFencingList'
 import GoogleMap from './GoogleMap'
 
@@ -165,7 +165,7 @@ const DefineLocation = ({ ForID }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/createGeoFencing`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(AddFormData),
       })
       const resJson = await res.json()
@@ -196,10 +196,7 @@ const DefineLocation = ({ ForID }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/supervisor/listWorkers`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({ a: 0, device: localStorage.getItem('DeviceDetails') }),
       })
       const resJson = await res.json()

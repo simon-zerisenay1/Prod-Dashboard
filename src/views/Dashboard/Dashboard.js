@@ -54,6 +54,7 @@ import {
   ShowTimeAMorPM,
   showdateYMDtoLocal,
   PrintaDiv,
+  headerAPI,
 } from '../../config'
 import { Link } from 'react-router-dom'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
@@ -192,10 +193,7 @@ const MyDashboard = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/supervisor/getNotifications`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           DESC: 'DESC',
           mineOnly: 1,
@@ -219,10 +217,7 @@ const MyDashboard = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/supervisor/listWorkers`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           ForAttendance: 1,
           SortStatusType: 1,
@@ -286,10 +281,7 @@ const MyDashboard = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/user/updateprofile`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(ProfileData),
       })
       const resJson = await res.json()
@@ -305,10 +297,7 @@ const MyDashboard = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getStaffWithNoActivity`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: '',
       })
       const resJson = await res.json()
@@ -387,10 +376,7 @@ const MyDashboard = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/user/profile`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           action: localStorage.getItem('token'),
           profile: 1,
@@ -456,10 +442,7 @@ const MyDashboard = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getActivityListData`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword: '',
           FilterFromDate,
@@ -720,10 +703,7 @@ const MyDashboard = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getAttendanceListData`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword: '',
           emp_id,
@@ -817,10 +797,7 @@ const MyDashboard = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/fetchEvents`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: '',
       })
       const resJson = await res.json()
@@ -843,10 +820,7 @@ const MyDashboard = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/fetchAnimalonEvents`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(event),
       })
       const resJson = await res.json()
@@ -880,10 +854,7 @@ const MyDashboard = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getworkerslist`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword: '',
           dpt_id: '',
@@ -923,10 +894,7 @@ const MyDashboard = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/attendance/fetchTodayUser`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword: '',
           dpt_id: '',
@@ -988,10 +956,7 @@ const MyDashboard = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/UpdatetoAdmin`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({}),
       })
       const resJson = await res.json()

@@ -33,7 +33,7 @@ import avtImg1 from 'src/assets/images/workers/1.jpg'
 
 import { CChart } from '@coreui/react-chartjs'
 
-import { NODEAPIURL } from '../../config'
+import { NODEAPIURL, headerAPI } from '../../config'
 // import AddWorkers from './AddWorkers'
 
 const WorkersActivityDetails = ({ ForEmpID, setShowAddWorkers }) => {
@@ -46,7 +46,7 @@ const WorkersActivityDetails = ({ ForEmpID, setShowAddWorkers }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getLeaveslist`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           token: 'hello',
           recordsPerPage: 10,
@@ -68,7 +68,7 @@ const WorkersActivityDetails = ({ ForEmpID, setShowAddWorkers }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getworkerslist`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword,
           recordsPerPage: 10,
@@ -90,7 +90,7 @@ const WorkersActivityDetails = ({ ForEmpID, setShowAddWorkers }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/updateWorkersStatus`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           new_status,
           emp_id,

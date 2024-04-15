@@ -19,7 +19,7 @@ import {
   CTableRow,
   CTableDataCell,
 } from '@coreui/react'
-import { NODEAPIURL, UPLOADSsURL, DoUploadURL } from '../../config'
+import { NODEAPIURL, UPLOADSsURL, DoUploadURL, headerAPI } from '../../config'
 
 // import avtImg1 from 'src/assets/images/workers/1.jpg' sdjbgf
 
@@ -55,10 +55,7 @@ const ProfileManagement = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/user/updateprofile`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(ProfileData),
       })
       const resJson = await res.json()
@@ -73,10 +70,7 @@ const ProfileManagement = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/user/listRelations`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({ device: localStorage.getItem('DeviceDetails') }),
       })
       const resJson = await res.json()
@@ -123,10 +117,7 @@ const ProfileManagement = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/user/profile`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           action: localStorage.getItem('token'),
           profile: 1,

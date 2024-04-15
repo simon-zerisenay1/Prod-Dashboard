@@ -11,7 +11,7 @@ import {
   CForm,
   CFormSelect,
 } from '@coreui/react'
-import { NODEAPIURL } from '../../config'
+import { NODEAPIURL, headerAPI } from '../../config'
 
 // var tempDelivered = 0
 // var tempPrdID = 0
@@ -45,10 +45,7 @@ const AddVendor = ({ setShowInventaryPlus, FetchDataList, ActionCategoryID, Acti
     try {
       const res = await fetch(`${NODEAPIURL}/admin/inventory/addPlus`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(FormsData),
       })
       const resJson = await res.json()
@@ -77,7 +74,7 @@ const AddVendor = ({ setShowInventaryPlus, FetchDataList, ActionCategoryID, Acti
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getPrdCatiData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType: 'ASC',
           Act_status: 1,
@@ -98,7 +95,7 @@ const AddVendor = ({ setShowInventaryPlus, FetchDataList, ActionCategoryID, Acti
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getListData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType: 'ASC',
           Act_status: 1,
@@ -120,7 +117,7 @@ const AddVendor = ({ setShowInventaryPlus, FetchDataList, ActionCategoryID, Acti
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getPrdUnitsData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType: 'ASC',
           Act_status: 1,

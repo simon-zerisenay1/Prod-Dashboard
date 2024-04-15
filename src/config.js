@@ -368,3 +368,11 @@ export const reportTitleLength = 10
 export const reportTitleAlphaLength = 5
 export const reportDescriptionLength = 50
 export const reportDescriptionAlphaLength = 30
+
+export function headerAPI(headerObj) {
+  return {
+    ...headerObj,
+    dbToken: localStorage.getItem('dbToken') ? localStorage.getItem('dbToken') : 0,
+    Authorization: `Basic ${localStorage.getItem('token') ? localStorage.getItem('token') : ''}`,
+  }
+}

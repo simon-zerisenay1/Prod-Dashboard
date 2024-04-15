@@ -14,7 +14,7 @@ import {
   CFormSelect,
   CFormTextarea,
 } from '@coreui/react'
-import { NODEAPIURL } from '../../config'
+import { NODEAPIURL, headerAPI } from '../../config'
 
 const FormFieldAdd = ({ ForID, setShowAddAddonField, FilterFormFieldssList, for_form }) => {
   const [AjaxMsg, setAjaxMsg] = useState('')
@@ -41,7 +41,7 @@ const FormFieldAdd = ({ ForID, setShowAddAddonField, FilterFormFieldssList, for_
     try {
       const res = await fetch(`${NODEAPIURL}/admin/addformFieldsdata`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(AddFormData),
       })
       const resJson = await res.json()
@@ -69,7 +69,7 @@ const FormFieldAdd = ({ ForID, setShowAddAddonField, FilterFormFieldssList, for_
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getformFieldDetails`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({ field_id }),
       })
       const resJson = await res.json()

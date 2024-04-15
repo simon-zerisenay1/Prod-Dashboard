@@ -24,7 +24,7 @@
 //     try {
 //       const res = await fetch(`${NODEAPIURL}/admin/getanimalslist`, {
 //         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
+//         headers: headerAPI({ 'Content-Type': 'application/json' }),
 //         body: JSON.stringify({}),
 //       })
 //       const resJson = await res.json()
@@ -43,7 +43,7 @@
 //     try {
 //       const res = await fetch(`${NODEAPIURL}/admin/getAnimalsBirthYear`, {
 //         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
+//         headers: headerAPI({ 'Content-Type': 'application/json' }),
 //         body: JSON.stringify({
 //           SortStatusType: 'ASC',
 //           Act_status: 1,

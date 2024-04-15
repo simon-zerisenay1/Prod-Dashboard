@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { AppContent, AppSidebar, AppFooter, AppHeader } from '../components/index'
 import Login from '../views/Pages/Login'
-import { NODEAPIURL, GetArrayFromJson, BASEWEBURL } from '../config'
+import { NODEAPIURL, GetArrayFromJson, BASEWEBURL, headerAPI } from '../config'
 import ChangePassword from '../views/Pages/ChangePassword'
 
 var AllPermission = GetArrayFromJson(localStorage.getItem('AllPermission'))
@@ -17,11 +17,7 @@ const DefaultLayout = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/supervisor/CheckLogin`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-          dbToken: localStorage.getItem('dbToken') ? localStorage.getItem('dbToken') : 0,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           action: localStorage.getItem('token'),
           permi_id: localStorage.getItem('permi_id'),
@@ -49,10 +45,7 @@ const DefaultLayout = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/supervisor/switchaccount`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           dpt_id,
           uType,

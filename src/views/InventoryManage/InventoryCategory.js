@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { CCol, CRow } from '@coreui/react'
-import { NODEAPIURL } from '../../config'
+import { NODEAPIURL, headerAPI } from '../../config'
 import { Link } from 'react-router-dom'
 import CIcon from '@coreui/icons-react'
 import { cilArrowCircleBottom, cilArrowCircleTop, cilPencil } from '@coreui/icons'
@@ -13,7 +13,7 @@ const ProductsInventaryPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getPrdCatiData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType: 'ASC',
           Act_status: 1,

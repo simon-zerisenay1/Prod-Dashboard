@@ -106,7 +106,7 @@
 //     try {
 //       var requestOptions = {
 //         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
+//         headers: headerAPI({ 'Content-Type': 'application/json' }),
 //         body: JSON.stringify(theSendData),
 //       }
 //       const res = await fetch(`${NODEAPIURL}/admin/AddAnimalsBloodParasite`, requestOptions)
@@ -150,7 +150,7 @@
 //     try {
 //       var requestOptions = {
 //         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
+//         headers: headerAPI({ 'Content-Type': 'application/json' }),
 //         body: JSON.stringify({ formID, AutoID, formType: 'bloodparasites' }),
 //       }
 //       const res = await fetch(`${NODEAPIURL}/admin/GetAnimalHealthData`, requestOptions)

@@ -30,7 +30,7 @@ import {
   CFormInput,
   CButton,
 } from '@coreui/react'
-import { NODEAPIURL } from '../../config'
+import { NODEAPIURL, headerAPI } from '../../config'
 import CreateField from './Create'
 
 let SortStatusType = 'DESC'
@@ -47,7 +47,7 @@ const FormFieldList = ({ for_form }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getformFieldsslist`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword,
           for_form,
@@ -71,7 +71,7 @@ const FormFieldList = ({ for_form }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/updateFormFieldStatus`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           new_status,
           field_id,
@@ -96,7 +96,7 @@ const FormFieldList = ({ for_form }) => {
       try {
         const res = await fetch(`${NODEAPIURL}/admin/getformFieldsslist`, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: headerAPI({ 'Content-Type': 'application/json' }),
           body: JSON.stringify({
             token: 'hello',
             recordsPerPage: 10,
