@@ -15,7 +15,7 @@ import {
   CFormCheck,
   CFormSelect,
 } from '@coreui/react'
-import { BASEWEBURL, NODEAPIURL } from '../../config'
+import { BASEWEBURL, NODEAPIURL, headerAPI } from '../../config'
 import ListDefaultData from './DefaultGeoFencingList'
 import GoogleMap from './GoogleMap'
 
@@ -167,7 +167,7 @@ const DefineLocationEdit = ({ RequestedID, setShowEdit, FilterDataList }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/UpdateGeoFencing`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(AddFormData),
       })
       const resJson = await res.json()
@@ -220,10 +220,7 @@ const DefineLocationEdit = ({ RequestedID, setShowEdit, FilterDataList }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/supervisor/listWorkers`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           geo_auto_id,
           device: localStorage.getItem('DeviceDetails'),
@@ -244,7 +241,7 @@ const DefineLocationEdit = ({ RequestedID, setShowEdit, FilterDataList }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getEmployeeGeo`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           auto_id,
           recordsPerPage: 10,

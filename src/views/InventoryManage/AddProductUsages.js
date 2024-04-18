@@ -14,7 +14,7 @@ import {
   CFormTextarea,
   CFormSelect,
 } from '@coreui/react'
-import { NODEAPIURL } from '../../config'
+import { NODEAPIURL, headerAPI } from '../../config'
 
 const AddProduct = ({ ForDataID, ForData, FilterDataList, setShowUploadBill }) => {
   const [FormData, setFormData] = useState({
@@ -40,10 +40,7 @@ const AddProduct = ({ ForDataID, ForData, FilterDataList, setShowUploadBill }) =
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/addProductUsages`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(FormData),
       })
       const resJson = await res.json()
@@ -70,7 +67,7 @@ const AddProduct = ({ ForDataID, ForData, FilterDataList, setShowUploadBill }) =
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getPrdCatiData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType: 'ASC',
           Act_status: 1,
@@ -92,7 +89,7 @@ const AddProduct = ({ ForDataID, ForData, FilterDataList, setShowUploadBill }) =
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getPrdUnitsData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType: 'ASC',
           Act_status: 1,

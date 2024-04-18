@@ -13,7 +13,7 @@ import {
   CButton,
   // CFormSelect,
 } from '@coreui/react'
-import { NODEAPIURL } from '../../config'
+import { NODEAPIURL, headerAPI } from '../../config'
 
 const AddWorkerDepartmentForm = ({ ForDataID, setShowAddData, FilterDataList }) => {
   const [AjaxMsg, setAjaxMsg] = useState('')
@@ -35,10 +35,7 @@ const AddWorkerDepartmentForm = ({ ForDataID, setShowAddData, FilterDataList }) 
     try {
       const res = await fetch(`${NODEAPIURL}/admin/publicHolidays/save`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(AddData),
       })
       const resJson = await res.json()
@@ -64,7 +61,7 @@ const AddWorkerDepartmentForm = ({ ForDataID, setShowAddData, FilterDataList }) 
     try {
       const res = await fetch(`${NODEAPIURL}/admin/publicHolidays/single`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({ pholi_id }),
       })
       const resJson = await res.json()

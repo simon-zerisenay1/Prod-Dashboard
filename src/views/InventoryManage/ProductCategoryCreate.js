@@ -14,7 +14,7 @@ import {
   CFormSelect,
   // CFormSelect,
 } from '@coreui/react'
-import { NODEAPIURL } from '../../config'
+import { NODEAPIURL, headerAPI } from '../../config'
 
 const AddWorkerDepartmentForm = ({ ForDataID, setShowAddData, FilterDataList }) => {
   const [AjaxMsg, setAjaxMsg] = useState('')
@@ -34,7 +34,7 @@ const AddWorkerDepartmentForm = ({ ForDataID, setShowAddData, FilterDataList }) 
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/addPrdCatiData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(AddData),
       })
       const resJson = await res.json()
@@ -61,7 +61,7 @@ const AddWorkerDepartmentForm = ({ ForDataID, setShowAddData, FilterDataList }) 
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getPrdCatiData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           token: 'hello',
           parent: 0,
@@ -88,7 +88,7 @@ const AddWorkerDepartmentForm = ({ ForDataID, setShowAddData, FilterDataList }) 
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getPrdCatiData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           cat_id,
         }),

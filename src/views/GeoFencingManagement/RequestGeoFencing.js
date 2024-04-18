@@ -25,7 +25,7 @@ import {
   CFormInput,
   CButton,
 } from '@coreui/react'
-import { NODEAPIURL, showdatetimein } from '../../config'
+import { NODEAPIURL, headerAPI, showdatetimein } from '../../config'
 import AddWorkers from '../WorkersManagement/AddWorkers'
 
 const RequestGeoFencing = () => {
@@ -39,7 +39,7 @@ const RequestGeoFencing = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getworkerslist`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           token: 'hello',
           recordsPerPage: 10,
@@ -61,7 +61,7 @@ const RequestGeoFencing = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getworkerslist`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword,
           recordsPerPage: 10,
@@ -83,7 +83,7 @@ const RequestGeoFencing = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/updateWorkersStatus`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           new_status,
           emp_id,

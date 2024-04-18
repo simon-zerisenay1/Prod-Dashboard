@@ -34,7 +34,7 @@ import {
   CDropdownItem,
   CDropdownToggle,
 } from '@coreui/react'
-import { NODEAPIURL, showFulldatetimein } from '../../config'
+import { NODEAPIURL, headerAPI, showFulldatetimein } from '../../config'
 import AddProduct from './AddProduct'
 import { Link } from 'react-router-dom'
 
@@ -53,7 +53,7 @@ const ProductListDataPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/updateStatus`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({ prd_id, new_status }),
       })
       const resJson = await res.json()
@@ -69,10 +69,7 @@ const ProductListDataPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getListData`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           token: 'hello',
           Act_status: 1,
@@ -97,10 +94,7 @@ const ProductListDataPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getListData`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword,
           Act_status,
@@ -123,7 +117,7 @@ const ProductListDataPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getPrdCatiData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType: 'ASC',
           Act_status: 1,
@@ -145,7 +139,7 @@ const ProductListDataPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getPrdUnitsData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType: 'ASC',
           Act_status: 1,

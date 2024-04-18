@@ -14,7 +14,7 @@ import {
   CFormSelect,
   CImage,
 } from '@coreui/react'
-import { DoUploadURL, NODEAPIURL, UPLOADSsURL } from '../../config'
+import { DoUploadURL, NODEAPIURL, UPLOADSsURL, headerAPI } from '../../config'
 import ListAddonsFieldPage from '../FormFields/List'
 import ListAddonsFieldData from '../FormFields/ListData'
 
@@ -63,7 +63,7 @@ const AddWorkerForm = ({ ForEmpID, setShowAddWorkers, FilterWorkersList, ResetPa
     try {
       const res = await fetch(`${NODEAPIURL}/admin/emgcontactUpdate`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(EmgContact),
       })
       const resJson = await res.json()
@@ -84,7 +84,7 @@ const AddWorkerForm = ({ ForEmpID, setShowAddWorkers, FilterWorkersList, ResetPa
     try {
       const res = await fetch(`${NODEAPIURL}/admin/addworkersdata`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(WorkedAddData),
       })
       const resJson = await res.json()
@@ -111,7 +111,7 @@ const AddWorkerForm = ({ ForEmpID, setShowAddWorkers, FilterWorkersList, ResetPa
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getworkersDetails`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           emp_id: emp_id,
           recordsPerPage: 10,
@@ -136,7 +136,7 @@ const AddWorkerForm = ({ ForEmpID, setShowAddWorkers, FilterWorkersList, ResetPa
     try {
       const res = await fetch(`${NODEAPIURL}/user/listRelations`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           sjain: 'ventures',
           recordsPerPage: 100,
@@ -157,7 +157,7 @@ const AddWorkerForm = ({ ForEmpID, setShowAddWorkers, FilterWorkersList, ResetPa
     try {
       const res = await fetch(`${NODEAPIURL}/admin/department/get`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType: 'asc',
           status: 1,

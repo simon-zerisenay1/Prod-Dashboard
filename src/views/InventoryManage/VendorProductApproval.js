@@ -38,7 +38,7 @@ import {
   CDropdownItem,
   CDropdownToggle,
 } from '@coreui/react'
-import { NODEAPIURL, showFulldatetimein } from '../../config'
+import { NODEAPIURL, headerAPI, showFulldatetimein } from '../../config'
 import AddBilltoICR from './AddBilltoICR'
 import AddDeliverytoBill from './AddDeliverytoBill'
 
@@ -66,10 +66,7 @@ const VendorListDataPage = () => {
         try {
           const res = await fetch(`${NODEAPIURL}/admin/inventory/POUpdateStatus`, {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Basic ${localStorage.getItem('token')}`,
-            },
+            headers: headerAPI({ 'Content-Type': 'application/json' }),
             body: JSON.stringify({
               ib_id,
               new_status,
@@ -94,10 +91,7 @@ const VendorListDataPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/inventory/getBillsList`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           token: 'hello',
           Act_status: '',
@@ -122,10 +116,7 @@ const VendorListDataPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/inventory/getBillsList`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword,
           Act_status,

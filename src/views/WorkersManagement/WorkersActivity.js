@@ -53,6 +53,7 @@ import {
   GetValueFromJson,
   PrintaDiv,
   getDateObj2Ymd,
+  headerAPI,
 } from '../../config'
 // import AddWorkers from './AddWorkers'
 import UploadActivity from '../ResearchersManagement/UploadActivity'
@@ -102,10 +103,7 @@ const WorkersActivityList = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/supervisor/listWorkers`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType,
           device: localStorage.getItem('DeviceDetails'),
@@ -128,10 +126,7 @@ const WorkersActivityList = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getActivityListData`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           token: 'hello',
           FilterFromDate,
@@ -197,10 +192,7 @@ const WorkersActivityList = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getActivityListData`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword,
           FilterFromDate,

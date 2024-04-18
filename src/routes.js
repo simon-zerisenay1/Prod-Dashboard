@@ -2,15 +2,15 @@ import React from 'react'
 
 const Dashboard = React.lazy(() => import('./views/Dashboard/Dashboard'))
 const Dashboard_backup = React.lazy(() => import('./views/Dashboard/Dashboard_backup'))
-const DashboardLiveStock = React.lazy(() => import('./views/Dashboard/DashboardLiveStock'))
-const AddAnimals = React.lazy(() => import('./views/LivestockManagenment/AddAnimals'))
-const AnimalsList = React.lazy(() => import('./views/LivestockManagenment/AnimalsList'))
+// const DashboardLiveStock = React.lazy(() => import('./views/Dashboard/DashboardLiveStock'))
+// const AddAnimals = React.lazy(() => import('./views/LivestockManagenment/AddAnimals'))
+// const AnimalsList = React.lazy(() => import('./views/LivestockManagenment/AnimalsList'))
 const AddFromSheet = React.lazy(() => import('./views/LivestockManagenment/AddFromSheet'))
-const AnimalListByBirthYear = React.lazy(() =>
-  import('./views/LivestockManagenment/AnimalListByBirthYear'),
-)
-const AddHealthCheckup = React.lazy(() => import('./views/HealthManagenment/AddHealthCheckup'))
-const AddFromSheetHealth = React.lazy(() => import('./views/HealthManagenment/AddFromSheet'))
+// const AnimalListByBirthYear = React.lazy(() =>
+//   import('./views/LivestockManagenment/AnimalListByBirthYear'),
+// )
+// const AddHealthCheckup = React.lazy(() => import('./views/HealthManagenment/AddHealthCheckup'))
+// const AddFromSheetHealth = React.lazy(() => import('./views/HealthManagenment/AddFromSheet'))
 const LeaveRequest = React.lazy(() => import('./views/WorkersManagement/LeaveRequest'))
 const MissedPunchs = React.lazy(() => import('./views/WorkersManagement/MissedPunchs'))
 const WorkersActivity = React.lazy(() => import('./views/WorkersManagement/WorkersActivity'))
@@ -22,7 +22,7 @@ const WorkersAttendance = React.lazy(() => import('./views/WorkersManagement/Wor
 const WorkersList = React.lazy(() => import('./views/WorkersManagement/WorkersList'))
 const GeoFencingList = React.lazy(() => import('./views/GeoFencingManagement/GeoFencingList'))
 const NotificationsList = React.lazy(() => import('./views/WorkersManagement/NotificationsList'))
-const AnimalLogs = React.lazy(() => import('./views/LivestockManagenment/AnimalsLogs'))
+// const AnimalLogs = React.lazy(() => import('./views/LivestockManagenment/AnimalsLogs'))
 const DefaultGeoFencingList = React.lazy(() =>
   import('./views/GeoFencingManagement/DefaultGeoFencingList'),
 )
@@ -52,7 +52,7 @@ const DeleteAccountRequest = React.lazy(() =>
 const ManageProductsUOM = React.lazy(() => import('./views/InventoryManage/ProductUOM'))
 const RolesPermissions = React.lazy(() => import('./views/UserRolesPermissions/RolesPermissions'))
 
-const AnimalsActivityList = React.lazy(() => import('./views/LivestockManagenment/ActivityList'))
+// const AnimalsActivityList = React.lazy(() => import('./views/LivestockManagenment/ActivityList'))
 const SchedulingList = React.lazy(() => import('./views/Scheduling/List'))
 
 const routes = [
@@ -62,19 +62,19 @@ const routes = [
   { path: '/Sign-Up-List', name: 'Dashboard', element: SignUpList },
   { path: '/Delete-Account-Request', name: 'Dashboard', element: DeleteAccountRequest },
   { path: '/Dashboard_backup', name: 'Dashboard', element: Dashboard_backup },
-  { path: '/DashboardLiveStock', name: 'Dashboard', element: DashboardLiveStock },
+  // { path: '/DashboardLiveStock', name: 'Dashboard', element: DashboardLiveStock },
   { path: '/workers-notifications', name: 'Dashboard', element: NotificationsList },
-  { path: '/animal-logs', name: 'Dashboard', element: AnimalLogs },
+  // { path: '/animal-logs', name: 'Dashboard', element: AnimalLogs },
   { path: '/manage-departments', name: 'Dashboard', element: Departments },
   { path: '/manage-public-holidays', name: 'Dashboard', element: publicHolidays },
-  { path: '/add-animals', name: 'AddAnimals', element: AddAnimals },
-  { path: '/animals-list', name: 'AnimalsList', element: AnimalsList },
-  { path: '/animals-list-birthYear', name: 'AnimalsList', element: AnimalListByBirthYear },
-  { path: '/animals-activities', name: 'AnimalsList', element: AnimalsActivityList },
+  // { path: '/add-animals', name: 'AddAnimals', element: AddAnimals },
+  // { path: '/animals-list', name: 'AnimalsList', element: AnimalsList },
+  // { path: '/animals-list-birthYear', name: 'AnimalsList', element: AnimalListByBirthYear },
+  // { path: '/animals-activities', name: 'AnimalsList', element: AnimalsActivityList },
   { path: '/scheduling', name: 'AnimalsList', element: SchedulingList },
   { path: '/add-from-sheet', name: 'AddFromSheet', element: AddFromSheet },
-  { path: '/add-health-checkup', name: 'AddHealthCheckup', element: AddHealthCheckup },
-  { path: '/add-from-sheet-health', name: 'AddFromSheetHealth', element: AddFromSheetHealth },
+  // { path: '/add-health-checkup', name: 'AddHealthCheckup', element: AddHealthCheckup },
+  // { path: '/add-from-sheet-health', name: 'AddFromSheetHealth', element: AddFromSheetHealth },
   { path: '/workers-leave-request', name: 'LeaveRequest', element: LeaveRequest },
   { path: '/workers-missed-punchs', name: 'MissedPunchIN', element: MissedPunchs },
   { path: '/workers-attendance', name: 'WorkersActivity', element: WorkersAttendance },

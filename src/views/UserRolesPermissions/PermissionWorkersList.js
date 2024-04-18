@@ -12,7 +12,7 @@ import {
   CTableHeaderCell,
   CTableRow,
 } from '@coreui/react'
-import { NODEAPIURL } from '../../config'
+import { NODEAPIURL, headerAPI } from '../../config'
 import PermissionWorkers from './PermissionWorkers'
 import { showFulldatetimein } from '../../config'
 import CIcon from '@coreui/icons-react'
@@ -55,7 +55,7 @@ const AddWorkerForm = ({ ForEmpID, setShowPermsWorkers, FilterWorkersList, setSh
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getUserPermissionList`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           emp_id: emp_id,
         }),
@@ -72,7 +72,7 @@ const AddWorkerForm = ({ ForEmpID, setShowPermsWorkers, FilterWorkersList, setSh
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getworkersDetails`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           emp_id: emp_id,
         }),
@@ -110,10 +110,7 @@ const AddWorkerForm = ({ ForEmpID, setShowPermsWorkers, FilterWorkersList, setSh
   function deletePermission(permi_id, emp_id, permi_title) {
     fetch(`${NODEAPIURL}/admin/deletePermission`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Basic ${localStorage.getItem('token')}`,
-      },
+      headers: headerAPI({ 'Content-Type': 'application/json' }),
       body: JSON.stringify({
         permi_id,
         emp_id,

@@ -13,7 +13,7 @@ import {
   CForm,
   CFormSelect,
 } from '@coreui/react'
-import { NODEAPIURL, BASEWEBURL } from '../../config'
+import { NODEAPIURL, BASEWEBURL, headerAPI } from '../../config'
 
 const AddVendor = ({ ForDataID, setShowUploadBill, FilterDataList }) => {
   const [BillData, setBillData] = useState({
@@ -34,7 +34,7 @@ const AddVendor = ({ ForDataID, setShowUploadBill, FilterDataList }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/vendor/getListData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({ Act_status: 1 }),
       })
       const resJson = await res.json()
@@ -100,10 +100,7 @@ const AddVendor = ({ ForDataID, setShowUploadBill, FilterDataList }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/inventory/UpdateBillData`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(FormDataHere),
       })
       const resJson = await res.json()
@@ -130,7 +127,7 @@ const AddVendor = ({ ForDataID, setShowUploadBill, FilterDataList }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/inventory/getBillDetails`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({ ib_id: ForDataID }),
       })
       const resJson = await res.json()
@@ -156,7 +153,7 @@ const AddVendor = ({ ForDataID, setShowUploadBill, FilterDataList }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getPrdCatiData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType: 'ASC',
           Act_status: 1,
@@ -177,7 +174,7 @@ const AddVendor = ({ ForDataID, setShowUploadBill, FilterDataList }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getListData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType: 'ASC',
           Act_status: 1,
@@ -198,7 +195,7 @@ const AddVendor = ({ ForDataID, setShowUploadBill, FilterDataList }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getPrdUnitsData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType: 'ASC',
           Act_status: 1,

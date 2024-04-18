@@ -39,6 +39,7 @@ import {
   GetMondayDate,
   GetTodayDate,
   showFulldatetimein,
+  headerAPI,
 } from '../../config'
 // import AddWorkers from './AddWorkers'
 
@@ -62,10 +63,7 @@ const WorkersLeaveRequest = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/user/logout`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           emp_id,
           token,
@@ -89,10 +87,7 @@ const WorkersLeaveRequest = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/supervisor/listWorkers`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType,
           device: localStorage.getItem('DeviceDetails'),
@@ -115,10 +110,7 @@ const WorkersLeaveRequest = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getWorkerLoginLogData`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           token: 'hello',
           FilterFromDate,
@@ -148,10 +140,7 @@ const WorkersLeaveRequest = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getWorkerLoginLogData`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword,
           FilterFromDate,

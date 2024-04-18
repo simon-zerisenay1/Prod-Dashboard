@@ -22,7 +22,7 @@ import {
   CButton,
   CFormSelect,
 } from '@coreui/react'
-import { BASEWEBURL, NODEAPIURL, showFulldatetimein, ShowTimeAMorPM } from '../../config'
+import { BASEWEBURL, headerAPI, NODEAPIURL, showFulldatetimein, ShowTimeAMorPM } from '../../config'
 import GeoFencingListEdit from './GeoFencingListEdit'
 
 let SortStatusType = 'DESC'
@@ -40,10 +40,7 @@ const GeoFencingList = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getGeoFenclist`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword,
           FilterStatus,
@@ -68,7 +65,7 @@ const GeoFencingList = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/updateGeoFencStatus`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           new_status,
           auto_id,

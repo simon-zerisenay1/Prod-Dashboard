@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import CIcon from '@coreui/icons-react'
 import { cilPlus } from '@coreui/icons'
 import { CCard, CCardBody, CCol, CRow, CButton, CFormInput, CForm } from '@coreui/react'
-import { NODEAPIURL, BASEWEBURL } from '../../config'
+import { NODEAPIURL, BASEWEBURL, headerAPI } from '../../config'
 // for Addon Fields
 import ListAddonsFieldPage from '../FormFields/List'
 import ListAddonsFieldData from '../FormFields/ListData'
@@ -48,7 +48,7 @@ const AddVendor = ({ ForDataID, setShowAddData, FilterDataList }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/vendor/UpdateData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(FormData),
       })
       const resJson = await res.json()
@@ -75,7 +75,7 @@ const AddVendor = ({ ForDataID, setShowAddData, FilterDataList }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/vendor/getDetails`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({ ven_id: ForDataID }),
       })
       const resJson = await res.json()

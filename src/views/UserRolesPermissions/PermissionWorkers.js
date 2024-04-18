@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 // import { cilFilter, cilPlus, cilSave, cilSortDescending } from '@coreui/icons'
 import { CCard, CCardBody, CCol, CRow, CForm, CButton, CFormInput } from '@coreui/react'
 import { CFormSelect } from '@coreui/react'
-import { NODEAPIURL } from '../../config'
+import { NODEAPIURL, headerAPI } from '../../config'
 const AddWorkerForm = ({
   ForEmpID,
   setEditPermsWorkers,
@@ -61,7 +61,7 @@ const AddWorkerForm = ({
     try {
       const res = await fetch(`${NODEAPIURL}/admin/addUserPermission`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(WorkedAddData),
       })
       const resJson = await res.json()
@@ -88,7 +88,7 @@ const AddWorkerForm = ({
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getUserPermission`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           emp_id,
           permi_id,
@@ -106,7 +106,7 @@ const AddWorkerForm = ({
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getworkersDetails`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           emp_id: emp_id,
         }),
@@ -127,7 +127,7 @@ const AddWorkerForm = ({
     try {
       const res = await fetch(`${NODEAPIURL}/admin/department/get`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType: 'ASC',
           status: 1,

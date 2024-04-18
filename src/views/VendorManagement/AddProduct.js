@@ -14,7 +14,7 @@ import {
   CFormTextarea,
   CFormSelect,
 } from '@coreui/react'
-import { NODEAPIURL, BASEWEBURL } from '../../config'
+import { NODEAPIURL, BASEWEBURL, headerAPI } from '../../config'
 // for Addon Fields
 import ListAddonsFieldPage from '../FormFields/List'
 import ListAddonsFieldData from '../FormFields/ListData'
@@ -68,7 +68,7 @@ const AddProduct = ({ ForDataID, setShowAddData, FilterDataList, pageFrom, categ
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/UpdateData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(FormData),
       })
       const resJson = await res.json()
@@ -98,7 +98,7 @@ const AddProduct = ({ ForDataID, setShowAddData, FilterDataList, pageFrom, categ
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getDetails`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({ prd_id: ForDataID }),
       })
       const resJson = await res.json()
@@ -117,7 +117,7 @@ const AddProduct = ({ ForDataID, setShowAddData, FilterDataList, pageFrom, categ
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getPrdCatiData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType: 'ASC',
           Act_status: 1,
@@ -139,7 +139,7 @@ const AddProduct = ({ ForDataID, setShowAddData, FilterDataList, pageFrom, categ
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getPrdUnitsData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType: 'ASC',
           Act_status: 1,

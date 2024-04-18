@@ -41,6 +41,7 @@ import {
   showFulldatetimein,
   UPLOADSsURL,
   GetArrayFromJson,
+  headerAPI,
 } from '../../config'
 import { Link } from 'react-router-dom'
 // import AddWorkers from './AddWorkers'
@@ -78,10 +79,7 @@ const NotificationsListPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/supervisor/listWorkers`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType,
           device: localStorage.getItem('DeviceDetails'),
@@ -104,10 +102,7 @@ const NotificationsListPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/supervisor/getNotifications`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           token: 'hello',
           keyword,
@@ -136,10 +131,7 @@ const NotificationsListPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/supervisor/getNotifications`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword,
           FilterFromDate,

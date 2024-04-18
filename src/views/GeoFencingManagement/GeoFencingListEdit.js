@@ -14,7 +14,7 @@ import {
   CFormSelect,
   // CFormSelect,
 } from '@coreui/react'
-import { BASEWEBURL, NODEAPIURL } from '../../config'
+import { BASEWEBURL, NODEAPIURL, headerAPI } from '../../config'
 import GoogleMap from './GoogleMap'
 
 const AddWorkerForm = ({ RequestedID, setShowEdit, FilterDataList }) => {
@@ -67,7 +67,7 @@ const AddWorkerForm = ({ RequestedID, setShowEdit, FilterDataList }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/UpdateEmployeeGeo`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(WorkedAddData),
       })
       const resJson = await res.json()
@@ -93,7 +93,7 @@ const AddWorkerForm = ({ RequestedID, setShowEdit, FilterDataList }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getEmployeeGeo`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           auto_id,
           recordsPerPage: 10,

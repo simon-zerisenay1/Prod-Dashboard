@@ -43,7 +43,7 @@ import {
   // CDropdownItem,
   // CDropdownToggle,
 } from '@coreui/react'
-import { NODEAPIURL } from '../../config'
+import { NODEAPIURL, headerAPI } from '../../config'
 import AddProductUsages from './AddProductUsages'
 import ViewProductUsages from './viewProductUsages'
 import InventoryPlus from './InventoryPlus'
@@ -72,10 +72,7 @@ const ProductsInventaryPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getProductInventaryList`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           CarIdSort,
           SubCatIdSort,
@@ -105,10 +102,7 @@ const ProductsInventaryPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getProductInventaryList`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword,
           Act_status,
@@ -137,7 +131,7 @@ const ProductsInventaryPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getPrdCatiData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           SortStatusType: 'ASC',
           Act_status: 1,

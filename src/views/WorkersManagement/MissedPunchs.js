@@ -46,6 +46,7 @@ import {
   GetValueFromJson,
   BASEWEBURL,
   UPLOADSsURL,
+  headerAPI,
 } from '../../config'
 // import { _adapters } from 'chart.js'
 
@@ -64,10 +65,7 @@ const MissedPunchs = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getMissedPunchsList`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           token: 'hello',
           recordsPerPage: 10,
@@ -95,10 +93,7 @@ const MissedPunchs = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getMissedPunchsList`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           recordsPerPage: 10,
           keyword,
@@ -124,10 +119,7 @@ const MissedPunchs = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/revokeRequestAdmin`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           auto_id,
           type,
@@ -155,10 +147,7 @@ const MissedPunchs = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/revokeRemoteRequestAdmin`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           auto_id,
           type,
@@ -185,10 +174,7 @@ const MissedPunchs = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/updateRecurringRequest`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           auto_id,
           status,
@@ -219,10 +205,7 @@ const MissedPunchs = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/updateMissedPunchStatus`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           new_status,
           auto_id,
@@ -252,10 +235,7 @@ const MissedPunchs = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/updateMissedPunchRemarkAdmin`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           RemarkId,
           RemarkAdmin,

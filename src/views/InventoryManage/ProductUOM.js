@@ -27,7 +27,7 @@ import {
   CButton,
   CFormSelect,
 } from '@coreui/react'
-import { NODEAPIURL, showdatetimein } from '../../config'
+import { NODEAPIURL, headerAPI, showdatetimein } from '../../config'
 import ProductUOMCreate from './ProductUOMCreate'
 import { Link } from 'react-router-dom'
 // import { findByText } from '@testing-library/react'
@@ -45,7 +45,7 @@ const DepartmentsListPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getPrdUnitsData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           token: 'hello',
           recordsPerPage: 10,
@@ -68,7 +68,7 @@ const DepartmentsListPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/getPrdUnitsData`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword,
           recordsPerPage: 10,
@@ -92,7 +92,7 @@ const DepartmentsListPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/updatePrdUOMStatus`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           status: new_status,
           unit_id: DataID,

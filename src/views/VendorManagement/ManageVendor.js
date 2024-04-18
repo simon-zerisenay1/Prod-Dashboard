@@ -34,7 +34,7 @@ import {
   CDropdownItem,
   CDropdownToggle,
 } from '@coreui/react'
-import { NODEAPIURL, showFulldatetimein } from '../../config'
+import { NODEAPIURL, headerAPI, showFulldatetimein } from '../../config'
 import AddVendor from './AddVendor'
 
 let Act_status = 1
@@ -52,7 +52,7 @@ const VendorListDataPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/vendor/updateStatus`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({ ven_id, new_status }),
       })
       const resJson = await res.json()
@@ -68,10 +68,7 @@ const VendorListDataPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/vendor/getListData`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           token: 'hello',
           Act_status: 1,
@@ -96,10 +93,7 @@ const VendorListDataPage = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/vendor/getListData`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword,
           Act_status,

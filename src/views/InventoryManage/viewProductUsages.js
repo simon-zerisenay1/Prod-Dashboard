@@ -37,7 +37,7 @@ import {
   // CDropdownItem,
   // CDropdownToggle,
 } from '@coreui/react'
-import { NODEAPIURL, showFulldatetimein } from '../../config'
+import { NODEAPIURL, headerAPI, showFulldatetimein } from '../../config'
 
 let Act_status = 0
 let keyword = ''
@@ -54,10 +54,7 @@ const ProductsInventaryPage = ({ ForDataID, ForData, setShowUploadBill }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/viewProductUsages`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           prd_id: ForDataID,
           Act_status: 1,
@@ -85,10 +82,7 @@ const ProductsInventaryPage = ({ ForDataID, ForData, setShowUploadBill }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/product/viewProductUsages`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           prd_id: ForDataID,
           keyword,

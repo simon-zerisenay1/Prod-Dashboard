@@ -74,7 +74,7 @@ const AddWorkerForm = ({ RequestedID, setShowEdit, FilterDataList }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/UpdateEmployeeGeo`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(WorkedAddData),
       })
       const resJson = await res.json()
@@ -100,7 +100,7 @@ const AddWorkerForm = ({ RequestedID, setShowEdit, FilterDataList }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getEmployeeGeo`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           auto_id,
           recordsPerPage: 10,
@@ -127,10 +127,7 @@ const AddWorkerForm = ({ RequestedID, setShowEdit, FilterDataList }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/supervisor/listWorkers`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({ a: 0, device: localStorage.getItem('DeviceDetails') }),
       })
       const resJson = await res.json()

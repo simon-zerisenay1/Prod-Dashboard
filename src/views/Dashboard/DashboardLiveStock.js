@@ -57,10 +57,7 @@ const DashboardLiveStock = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/GetAnimalDataByFilter`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({ ForAttribute }),
       })
       const resJson = await res.json()
@@ -90,10 +87,7 @@ const DashboardLiveStock = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/dataDashboardLiveStock`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({ ActivityMonth, ActivityYear }),
       })
       const resJson = await res.json()

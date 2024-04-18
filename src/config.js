@@ -52,21 +52,38 @@ export function GetArrayFromJson(jsonvalue) {
   return sendValue
 }
 
-// export const BASEWEBURL = 'https://demo3.sjainventures.com/frc/administrator'
-export const BASEWEBURL1 = 'https://frcadmin.sjain.io'
-export const BASEWEBURL2 = 'http://localhost:3000'
-export const BASEWEBURL3 = 'https://reactjs.indiahelppoint.in/'
+// Local System URL will be here
+const LOCALBASEURL = 'http://localhost:3000' // react code URL
+const LocalNODEAPIURL = 'http://localhost:3005' // node code URL
+// Local System URL will be here
 
-export const BASEWEBURL = BASEWEBURL3
+// Online Server System URL will be here
+const ONLINEBASEURL = 'https://reactjs.indiahelppoint.in/' // react code URL
+const OnlineNODEAPIURL = 'https://nodejs.indiahelppoint.in' // node code URL
+// Online Server System  URL will be here
+
+// decide the web and API url automatically
+let BaseURLFinal = ONLINEBASEURL
+let FinalNODEAPIURL = OnlineNODEAPIURL
+
+if (window.location.href.includes(LOCALBASEURL)) {
+  BaseURLFinal = LOCALBASEURL
+  FinalNODEAPIURL = LocalNODEAPIURL
+}
+
+export const BASEWEBURL = BaseURLFinal
+export const NODEAPIURL = FinalNODEAPIURL
+// decide the web and API url automatically
 
 export const UPLOADSsURL = 'https://frcadmin.sjain.io/uploads/'
 export const DoUploadURL = 'https://frcadmin.sjain.io/uploads/index.php'
 
-export const NODEAPIURL = 'https://nodejs.indiahelppoint.in'
+// node code Base URL
 
-export const NodeUPLOADSsURL = 'https://nodejs.indiahelppoint.in/showfile/'
+export const NodeUPLOADSsURL = 'http://localhost:3000/showfile/'
 export const DoNodeUploadURL = `${NODEAPIURL}/uploadAnyFile`
 export const NodeUploadBasePhyPath = '/home/azureuser/frcsj/uploads/'
+// node code Base URL
 
 export const AllMonthsName = [
   'January',
@@ -351,3 +368,11 @@ export const reportTitleLength = 10
 export const reportTitleAlphaLength = 5
 export const reportDescriptionLength = 50
 export const reportDescriptionAlphaLength = 30
+
+export function headerAPI(headerObj) {
+  return {
+    ...headerObj,
+    dbToken: localStorage.getItem('dbToken') ? localStorage.getItem('dbToken') : 0,
+    Authorization: `Basic ${localStorage.getItem('token') ? localStorage.getItem('token') : ''}`,
+  }
+}

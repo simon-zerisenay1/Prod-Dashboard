@@ -14,7 +14,7 @@ import {
   //   CImage,
 } from '@coreui/react'
 
-import { NODEAPIURL } from '../../config'
+import { NODEAPIURL, headerAPI } from '../../config'
 
 // import Logo from '../../assets/images/logo.png'
 // import loginImg from '../../assets/images/login-img.svg'
@@ -44,10 +44,7 @@ const Login = ({ setShowChangePsw, ShowChangePsw }) => {
     try {
       const res = await fetch(`${NODEAPIURL}/supervisor/ChangePassword`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(LoginDetails),
       })
       const resJson = await res.json()

@@ -48,6 +48,7 @@ import {
   AllMonthsName,
   PrintaDiv,
   getWorkingDays,
+  headerAPI,
 } from '../../config'
 // import AddWorkers from './AddWorkers'
 let emp_id = ''
@@ -125,10 +126,7 @@ const ShowWorkersAttendance = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/supervisor/listWorkers`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           ForAttendance: 1,
           FilterFromDate,
@@ -322,10 +320,7 @@ const ShowWorkersAttendance = () => {
     try {
       const res = await fetch(`${NODEAPIURL}/admin/getAttendanceListData`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${localStorage.getItem('token')}`,
-        },
+        headers: headerAPI({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           keyword,
           FilterFromDate,
@@ -456,10 +451,7 @@ const ShowWorkersAttendance = () => {
       try {
         const res = await fetch(`${NODEAPIURL}/admin/getAttendanceListData`, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Basic ${localStorage.getItem('token')}`,
-          },
+          headers: headerAPI({ 'Content-Type': 'application/json' }),
           body: JSON.stringify({
             token: 'hello',
             FilterFromDate,
