@@ -169,75 +169,75 @@ _nav.push({
   to: '/profile-management',
   icon: <CIcon icon={cilContact} customClassName="nav-icon" />,
 })
-_nav.push({
-  component: CNavGroup,
-  name: 'Inventory Management',
-  customclassname:
-    GetValueFromJson(localStorage.getItem('permission'), 'invt_mng', '') === 1 ? '' : 'resr_mng',
-  icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
-  items: [
-    {
-      component: CNavItem,
-      name: 'Create PO',
-      to: '/vendor-product-approval',
-      icon: <CIcon icon={cilCircle} customClassName="nav-icon" />,
-    },
-    {
-      component: CNavItem,
-      name: 'Quality Test',
-      to: '/quality-test',
-      icon: <CIcon icon={cilCircle} customClassName="nav-icon" />,
-    },
-    {
-      component: CNavItem,
-      name: 'Inventory',
-      to: '/inventory',
-      icon: <CIcon icon={cilCircle} customClassName="nav-icon" />,
-    },
-  ],
-})
-_nav.push({
-  component: CNavGroup,
-  name: 'Vendor Management',
-  customclassname:
-    GetValueFromJson(localStorage.getItem('permission'), 'vend_mng', '') === 1 ? '' : 'vend_mng',
-  icon: <CIcon icon={cilGroup} customClassName="nav-icon" />,
-  items: [
-    {
-      component: CNavItem,
-      name: 'Manage Vendor',
-      to: '/manage-vendor',
-      icon: <CIcon icon={cilCircle} customClassName="nav-icon" />,
-    },
-  ],
-})
-_nav.push({
-  component: CNavGroup,
-  name: 'Researchers Management',
-  customclassname:
-    GetValueFromJson(localStorage.getItem('permission'), 'resr_mng', '') === 1 ? '' : 'resr_mng',
-  icon: <CIcon icon={cilFindInPage} customClassName="nav-icon" />,
-  items: [
-    {
-      component: CNavItem,
-      name: 'Create Report',
-      to: '/upload-activity',
-      icon: <CIcon icon={cilPlus} customClassName="nav-icon" />,
-    },
-    {
-      component: CNavItem,
-      name: 'Scheduling',
-      to: '/scheduling',
-      icon: <CIcon icon={cilBell} customClassName="nav-icon" />,
-    },
-    {
-      component: CNavItem,
-      name: 'All Reports',
-      to: '/workers-activity',
-      icon: <CIcon icon={cilFolder} customClassName="nav-icon" />,
-    },
-  ],
-})
+// _nav.push({
+//   component: CNavGroup,
+//   name: 'Inventory Management',
+//   customclassname:
+//     GetValueFromJson(localStorage.getItem('permission'), 'invt_mng', '') === 1 ? '' : 'resr_mng',
+//   icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
+//   items: [
+//     {
+//       component: CNavItem,
+//       name: 'Create PO',
+//       to: '/vendor-product-approval',
+//       icon: <CIcon icon={cilCircle} customClassName="nav-icon" />,
+//     },
+//     {
+//       component: CNavItem,
+//       name: 'Quality Test',
+//       to: '/quality-test',
+//       icon: <CIcon icon={cilCircle} customClassName="nav-icon" />,
+//     },
+//     {
+//       component: CNavItem,
+//       name: 'Inventory',
+//       to: '/inventory',
+//       icon: <CIcon icon={cilCircle} customClassName="nav-icon" />,
+//     },
+//   ],
+// })
+// _nav.push({
+//   component: CNavGroup,
+//   name: 'Vendor Management',
+//   customclassname:
+//     GetValueFromJson(localStorage.getItem('permission'), 'vend_mng', '') === 1 ? '' : 'vend_mng',
+//   icon: <CIcon icon={cilGroup} customClassName="nav-icon" />,
+//   items: [
+//     {
+//       component: CNavItem,
+//       name: 'Manage Vendor',
+//       to: '/manage-vendor',
+//       icon: <CIcon icon={cilCircle} customClassName="nav-icon" />,
+//     },
+//   ],
+// })
+// _nav.push({
+//   component: CNavGroup,
+//   name: 'Researchers Management',
+//   customclassname:
+//     GetValueFromJson(localStorage.getItem('permission'), 'resr_mng', '') === 1 ? '' : 'resr_mng',
+//   icon: <CIcon icon={cilFindInPage} customClassName="nav-icon" />,
+//   items: [
+//     {
+//       component: CNavItem,
+//       name: 'Create Report',
+//       to: '/upload-activity',
+//       icon: <CIcon icon={cilPlus} customClassName="nav-icon" />,
+//     },
+//     {
+//       component: CNavItem,
+//       name: 'Scheduling',
+//       to: '/scheduling',
+//       icon: <CIcon icon={cilBell} customClassName="nav-icon" />,
+//     },
+//     {
+//       component: CNavItem,
+//       name: 'All Reports',
+//       to: '/workers-activity',
+//       icon: <CIcon icon={cilFolder} customClassName="nav-icon" />,
+//     },
+//   ],
+// })
 
 _nav.push({
   component: CNavGroup,
