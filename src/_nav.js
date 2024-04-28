@@ -1,14 +1,14 @@
+/* eslint-disable prettier/prettier */
 import React from 'react'
 import CIcon from '@coreui/icons-react'
 import {
   cilHome,
-  cilBell,
+  // cilBell,
   cilIndustry,
   cilMap,
   cilContact,
-  cilNotes,
   cilCircle,
-  cilFindInPage,
+  // cilFindInPage,
   cilGroup,
   cilCog,
   cilCalendarCheck,
@@ -18,7 +18,7 @@ import {
   // cilAnimal,
   cilList,
   // cilApplications,
-  cilFolder,
+  // cilFolder,
   cilPlus,
   cilLayers,
   cilChart,
@@ -44,51 +44,6 @@ if (Number(localStorage.getItem('uType')) === 3) {
   })
 }
 
-// if (GetValueFromJson(localStorage.getItem('permission'), 'dsh_lvst', '') === 1) {
-//   _nav.push({
-//     component: CNavItem,
-//     name: 'Livestock Dashboard',
-//     to: '/dashboardliveStock',
-//     icon: <CIcon icon={cilAnimal} customClassName="nav-icon" />,
-//   })
-// }
-
-// _nav.push({
-//   component: CNavGroup,
-//   name: 'Livestock Managenment',
-//   customclassname:
-//     GetValueFromJson(localStorage.getItem('permission'), 'ls_mng', '') === 1 ? '' : 'ls_mng',
-//   icon: <CIcon icon={cilAnimal} customClassName="nav-icon" />,
-//   items: [
-//     {
-//       component: CNavItem,
-//       name: 'Animals List',
-//       to: '/animals-list-birthYear',
-//       icon: <CIcon icon={cilList} customClassName="nav-icon" />,
-//     },
-//     {
-//       component: CNavItem,
-//       name: 'Animals Activities',
-//       to: '/animals-activities',
-//       icon: <CIcon icon={cilApplications} customClassName="nav-icon" />,
-//     },
-//   ],
-// })
-// _nav.push({
-//   component: CNavGroup,
-//   name: 'Livestock Health Managenment',
-//   customclassname:
-//     GetValueFromJson(localStorage.getItem('permission'), 'lsh_mng', '') === 1 ? '' : 'lsh_mng',
-//   icon: <CIcon icon={cilBell} customClassName="nav-icon" />,
-//   items: [
-//     {
-//       component: CNavItem,
-//       name: 'Add Health Check-Up',
-//       to: '/add-health-checkup',
-//       icon: <CIcon icon={cilCircle} customClassName="nav-icon" />,
-//     },
-//   ],
-// })
 _nav.push({
   component: CNavGroup,
   name: 'Staff Management',
@@ -128,6 +83,9 @@ _nav.push({
     },
   ],
 })
+
+
+
 _nav.push({
   component: CNavGroup,
   name: 'Geo Fencing Management',
@@ -169,48 +127,6 @@ _nav.push({
   to: '/profile-management',
   icon: <CIcon icon={cilContact} customClassName="nav-icon" />,
 })
-// _nav.push({
-//   component: CNavGroup,
-//   name: 'Inventory Management',
-//   customclassname:
-//     GetValueFromJson(localStorage.getItem('permission'), 'invt_mng', '') === 1 ? '' : 'resr_mng',
-//   icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
-//   items: [
-//     {
-//       component: CNavItem,
-//       name: 'Create PO',
-//       to: '/vendor-product-approval',
-//       icon: <CIcon icon={cilCircle} customClassName="nav-icon" />,
-//     },
-//     {
-//       component: CNavItem,
-//       name: 'Quality Test',
-//       to: '/quality-test',
-//       icon: <CIcon icon={cilCircle} customClassName="nav-icon" />,
-//     },
-//     {
-//       component: CNavItem,
-//       name: 'Inventory',
-//       to: '/inventory',
-//       icon: <CIcon icon={cilCircle} customClassName="nav-icon" />,
-//     },
-//   ],
-// })
-// _nav.push({
-//   component: CNavGroup,
-//   name: 'Vendor Management',
-//   customclassname:
-//     GetValueFromJson(localStorage.getItem('permission'), 'vend_mng', '') === 1 ? '' : 'vend_mng',
-//   icon: <CIcon icon={cilGroup} customClassName="nav-icon" />,
-//   items: [
-//     {
-//       component: CNavItem,
-//       name: 'Manage Vendor',
-//       to: '/manage-vendor',
-//       icon: <CIcon icon={cilCircle} customClassName="nav-icon" />,
-//     },
-//   ],
-// })
 // _nav.push({
 //   component: CNavGroup,
 //   name: 'Researchers Management',

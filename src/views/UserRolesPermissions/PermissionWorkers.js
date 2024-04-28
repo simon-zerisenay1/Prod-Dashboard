@@ -16,14 +16,9 @@ const AddWorkerForm = ({
   const [AjaxMsg, setAjaxMsg] = useState('')
 
   const [PermissionArray] = useState([
-    { id: 'dsh_lvst', title: 'LiveStock Health Dashboard' },
-    { id: 'ls_mng', title: 'LiveStock Management' },
-    { id: 'lsh_mng', title: 'LiveStock Health  Management' },
     { id: 'wrk_mng', title: 'Workers Management' },
     { id: 'geo_mng', title: 'Geo fencing Management' },
-    { id: 'invt_mng', title: 'Inventory Management' },
-    { id: 'resr_mng', title: 'Researcher Management' },
-    { id: 'vend_mng', title: 'Vendors Management' },
+    // { id: 'resr_mng', title: 'Researcher Management' },
     { id: 'rols_mng', title: 'User Roles and Permissions' },
   ])
 

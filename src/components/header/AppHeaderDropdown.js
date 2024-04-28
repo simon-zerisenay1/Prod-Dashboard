@@ -1,7 +1,9 @@
+/* eslint-disable prettier/prettier */
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { NavLink } from 'react-router-dom';
 import {
-  CAvatar,
+  // CAvatar,
   // CBadge,
   CDropdown,
   CDropdownDivider,
@@ -19,6 +21,7 @@ import {
   cilLockLocked,
   cilLockUnlocked,
   cilSettings,
+  // cilShieldX,
   // cilSettings,
   // cilTask,
   cilUser,
@@ -27,7 +30,7 @@ import {
 import CIcon from '@coreui/icons-react'
 
 // import avatar8 from './../../assets/images/workers/1.jpg'
-import Logo from './../../assets/images/logo.png'
+// import Logo from './../../assets/images/logo.png'
 import { GetValueFromJson, NODEAPIURL } from '../../config'
 // import ChangePassword from '../../views/Pages/ChangePassword'
 
@@ -102,6 +105,17 @@ const AppHeaderDropdown = () => {
           >
             <CIcon icon={cilLockUnlocked} className="me-2" />
             Change Password
+          </CDropdownItem>
+          <CDropdownItem
+            onClick={() => {
+              // window.location.href='/dashboard/delete'
+              
+            }}
+            
+          >
+            {/* <CIcon icon={cilShieldX} className="me-2" /> */}
+            <NavLink to="/delete" className="nav-link"><div style={{color:'red', cursor:'pointer'}}>Delete Account</div></NavLink>
+            
           </CDropdownItem>
           <CDropdownDivider />
           <CDropdownItem

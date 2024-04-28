@@ -22,15 +22,10 @@ const AddWorkerForm = ({ ForEmpID, setShowPermsWorkers, FilterWorkersList, setSh
   const [EditPermiId, setEditPermiId] = useState(0)
 
   const [PermissionArray] = useState([
-    { id: 'ls_mng', title: 'LiveStock Management' },
-    { id: 'lsh_mng', title: 'LiveStock Health  Management' },
     { id: 'wrk_mng', title: 'Workers Management' },
     { id: 'geo_mng', title: 'Geo fencing Management' },
-    { id: 'invt_mng', title: 'Inventory Management' },
-    { id: 'resr_mng', title: 'Researcher Management' },
-    { id: 'vend_mng', title: 'Vendors Management' },
+    // { id: 'resr_mng', title: 'Researcher Management' },
     { id: 'rols_mng', title: 'User Roles and Permissions' },
-    { id: 'dsh_lvst', title: 'LiveStock Health Dashboard' },
   ])
 
   function ShowPermission(per_id) {

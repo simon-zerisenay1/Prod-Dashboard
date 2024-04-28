@@ -63,7 +63,7 @@ const DefineLocation = ({ ForID }) => {
     ListUsers,
     ToAllUsers,
     break_allowed: BreakAllowed,
-    restrictGeo,
+    restrictGeo: 0,
     typeGeo,
   })
   // let HandleForm = (e) => {
@@ -334,6 +334,7 @@ const DefineLocation = ({ ForID }) => {
                           settypeGeo(e.target.value)
                         }}
                       >
+                        {/* <option value="0">Select</option> */}
                         <option value="1">Office</option>
                         <option value="2">Home</option>
                         <option value="3">Remote</option>
@@ -352,6 +353,7 @@ const DefineLocation = ({ ForID }) => {
                           setrestrictGeo(e.target.value)
                         }}
                       >
+                        {/* <option value="">Select</option> */}
                         <option value="0">Workplace</option>
                         <option value="1">Home/ Remote</option>
                       </CFormSelect>

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useState, useEffect, useRef } from 'react'
 import { DownloadTableExcel } from 'react-export-table-to-excel'
 import { Chart } from 'react-google-charts'
@@ -298,6 +299,12 @@ const WorkersActivityList = () => {
         setShowUploadActivity={setShowUploadActivity}
         FilterListData={FilterAttendanceListData}
       />
+    )
+  }
+
+  if(localStorage.getItem('sub')==='basic'){
+    return(
+      <div>You need to standard subscription to access this page.</div>
     )
   }
 

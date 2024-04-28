@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from 'react'
 import CIcon from '@coreui/icons-react'
 import { Chart } from 'react-google-charts'
@@ -6,16 +7,11 @@ import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 // for the Calender
 import {
-  cilBell,
   cilCloudDownload,
   cilEnvelopeClosed,
   cilEnvelopeLetter,
-  cilIndustry,
-  cilMap,
   cilMobile,
   cilPlus,
-  // cilSave,
-  cilUser,
   cilWarning,
   cilWindowMinimize,
 } from '@coreui/icons'
@@ -264,6 +260,47 @@ const MyDashboard = () => {
     emgcontact_mobile: '',
     address: '',
   })
+  //---------------------------------------------------------------
+  const [subscription, setSubscription] = useState('basic')
+  useEffect(() => {
+    const profile = localStorage.getItem('profile')
+    const profileData = JSON.parse(profile);
+    console.log(profileData.company_id)
+    const url = `https://frc-activities-app-backend.onrender.com/checkSubscription`;
+
+    const requestData = {
+      company_id:profileData.company_id
+    };
+
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestData),
+    };
+    // console.log(formData.active_subscription);
+    // if (formData.active_subscription !== "") {
+    fetch(url, options)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        return response.json();
+      })
+      .then((data) => {
+        setSubscription(data.subscription)
+        localStorage.setItem('sub',data.subscription)
+      })
+      .catch((data) => {
+       
+        console.error("There was a problem with the fetch operation:", data);
+      });
+  },[])
+
+//--------------------------------------------------------------------------
+
   const HandleFormData = (name, value) => {
     setProfileData({ ...ProfileData, [name]: value })
   }
@@ -1454,8 +1491,10 @@ const MyDashboard = () => {
           }}
         >
           <div>
+            { subscription && subscription==='standard'?
             <div>
-              <h5 className="text-info">
+              
+                <h5 className="text-info">
                 Activity Report &nbsp;
                 <Link to="/upload-activity" className="btn dontPrint btn-sm btn-danger text-white">
                   <CIcon icon={cilPlus} />
@@ -1472,7 +1511,11 @@ const MyDashboard = () => {
                   height={'250px'}
                 />
               </CCol>
+              
+             
+              
             </div>
+             :''}
           </div>
         </CCol>
 
@@ -1753,95 +1796,6 @@ const MyDashboard = () => {
             </CTable>
             {/* Export Template for the Attedance Reports */}
           </div>
-        </CCol>
-
-        <CCol md={9} className="d-none">
-          <CCard className="bg-white text-white mb-4 p-4">
-            <CCardBody>
-              <CRow>
-                <CCol lg={6}>
-                  <CCard className="bg-primary text-white mb-4 p-4">
-                    <CCardBody>
-                      <CRow>
-                        <CCol xs={3}>
-                          <CIcon icon={cilUser} customClassName="nav-icon" />
-                        </CCol>
-                        <CCol xs={9}>
-                          <CCardTitle style={{ marginBottom: '15px' }}>
-                            Livestock Managenment
-                          </CCardTitle>
-                          <CCardText>
-                            <CButton color="light" size="sm" href="#/animals-list">
-                              View Detail
-                            </CButton>
-                          </CCardText>
-                        </CCol>
-                      </CRow>
-                    </CCardBody>
-                  </CCard>
-                  <CCard className="bg-success text-white mb-4 p-4">
-                    <CCardBody>
-                      <CRow>
-                        <CCol xs={3}>
-                          <CIcon icon={cilBell} customClassName="nav-icon" />
-                        </CCol>
-                        <CCol xs={9}>
-                          <CCardTitle style={{ marginBottom: '15px' }}>
-                            Livestock Health Managenment
-                          </CCardTitle>
-                          <CCardText>
-                            <CButton color="light" size="sm" href="#/add-health-checkup">
-                              View Detail
-                            </CButton>
-                          </CCardText>
-                        </CCol>
-                      </CRow>
-                    </CCardBody>
-                  </CCard>
-                </CCol>
-                <CCol lg={6}>
-                  <CCard className="bg-danger text-white mb-4 p-4">
-                    <CCardBody>
-                      <CRow>
-                        <CCol xs={3}>
-                          <CIcon icon={cilIndustry} customClassName="nav-icon" />
-                        </CCol>
-                        <CCol xs={9}>
-                          <CCardTitle style={{ marginBottom: '15px' }}>
-                            Workers Management
-                          </CCardTitle>
-                          <CCardText>
-                            <CButton color="light" size="sm" href="#/workers-activity">
-                              View Detail
-                            </CButton>
-                          </CCardText>
-                        </CCol>
-                      </CRow>
-                    </CCardBody>
-                  </CCard>
-                  <CCard className="bg-warning text-white mb-4 p-4">
-                    <CCardBody>
-                      <CRow>
-                        <CCol xs={3}>
-                          <CIcon icon={cilMap} customClassName="nav-icon" />
-                        </CCol>
-                        <CCol xs={9}>
-                          <CCardTitle style={{ marginBottom: '15px' }}>
-                            Geo Fencing Management
-                          </CCardTitle>
-                          <CCardText>
-                            <CButton color="light" size="sm" href="#/geo-fencing-list">
-                              View Detail
-                            </CButton>
-                          </CCardText>
-                        </CCol>
-                      </CRow>
-                    </CCardBody>
-                  </CCard>
-                </CCol>
-              </CRow>
-            </CCardBody>
-          </CCard>
         </CCol>
       </CRow>
 
