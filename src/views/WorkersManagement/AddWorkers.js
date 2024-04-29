@@ -462,9 +462,11 @@ const AddWorkerForm = ({ ForEmpID, setShowAddWorkers, FilterWorkersList, ResetPa
                         if (uaeNumberRegex.test(PhoneNunber)) {
                           WorkedAddData.mobileValid = ''
                         } else {
-                          WorkedAddData.mobileValid = 'Please enter a valid UAE phone number!'
-                          HandleForm('mobileValid', 'Please enter a valid UAE phone number!')
-                          console.log('Please enter a valid UAE phone number!')
+                          // WorkedAddData.mobileValid = 'Please enter a valid UAE phone number!'
+                          WorkedAddData.mobileValid = ''
+                          HandleForm('mobileValid', '')
+                          // HandleForm('mobileValid', 'Please enter a valid UAE phone number!')
+                          // console.log('Please enter a valid UAE phone number!')
                         }
                         HandleForm(e.target.name, PhoneNunber)
                       }}

@@ -304,7 +304,29 @@ const WorkersActivityList = () => {
 
   if(localStorage.getItem('sub')==='basic'){
     return(
-      <div>You need to standard subscription to access this page.</div>
+      <div style={{display: 'flex',
+      flexDirection:'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh',
+    margin: 0,}}>
+      <div style={{padding: '20px',
+    
+    
+    borderRadius: '5px',
+    color: '#333',
+    fontWeight: 'bold',
+    textAlign: 'center',}}>You need to standard subscription to access this page.</div>
+      <button style={{padding: '10px 20px',
+    background: 'linear-gradient(to bottom, #ffcc00 0%, #ff9900 100%)',
+    border: '1px solid #ff9900',
+    borderRadius: '5px',
+    color: '#fff',
+    fontWeight: 'bold',
+    textDecoration: 'none',
+    textTransform: 'uppercase',
+    cursor: 'pointer',}}>Upgrade Now</button>
+      </div>
     )
   }
 

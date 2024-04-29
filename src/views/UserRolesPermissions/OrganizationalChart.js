@@ -50,7 +50,7 @@ const OrganizationalChart = () => {
   }
 
   function ShowEmpImg(image) {
-    let send = `${UPLOADSsURL}logo.png`
+    let send = `${BASEWEBURL}/logo.png`
     if (image && image !== '' && image !== 'null' && image !== null) {
       send = `${UPLOADSsURL}${image}`
     }
